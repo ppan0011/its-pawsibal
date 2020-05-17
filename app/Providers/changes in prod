@@ -1,0 +1,2 @@
+.env file                                      // app env to prod
+app/AppServiceProvider.php                     // uncomment code in boot() method
