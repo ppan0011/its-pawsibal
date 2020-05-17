@@ -43,8 +43,6 @@
   <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
   <!-- <script src="{{ asset('js/scrollax.min.js') }}"></script> -->
   <script src="{{ asset('js/main.js') }}"></script>
-  <script src="{{ asset('js/explore-area.js') }}"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6NqKaeopGxcPNpfE8jEIF04J8Aa1nVT8&libraries=places&callback=initAutocomplete" async defer></script>
 
 <!--   <script type="text/javascript">
     $( document ).ready(function() {
