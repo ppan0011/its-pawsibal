@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://itspawsibal.live'),
+    'url' => env('APP_URL', 'https://itspawsibal.live/'),
 
     'asset_url' => env('ASSET_URL', null),
 
