@@ -9,7 +9,7 @@
         <li class="nav-item active homelink"><a href="{{ url('home') }}" class="nav-link">Home</a></li>
         <li class="nav-item bushfireslink"><a href="{{ url('bushfires') }}" class="nav-link">Explore Bushfire Regions</a></li>
         <li class="nav-item ruleslink"><a href="{{ url('local-rules') }}" class="nav-link">Local Rules</a></li>
-        <li class="nav-item ruleslink"><a href="{{ url('explore-information') }}" class="nav-link">Explore your area</a></li>
+        <li class="nav-item exploreArealink"><a href="{{ url('explore-information') }}" class="nav-link">Explore your area</a></li>
         <!-- <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Link</a></li> -->

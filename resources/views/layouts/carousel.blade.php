@@ -21,7 +21,7 @@
           <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
             <div class="d-block services text-center">
               <div class="icon d-flex align-items-center justify-content-center">
-                <span class="flaticon-koala"></span>
+                <span class="flaticon-animals"></span>
               </div>
               <div class="media-body">
                 <h3 class="heading">Vulnerable Species</h3>
