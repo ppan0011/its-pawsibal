@@ -100,5 +100,8 @@
 		$('.homelink').removeClass( "active" );
 		$('.bushfireslink').removeClass( "active" );
 		$('.resultsDetailSection').hide();
+		$('.askLocation').click(function(){
+			
+		});
 	</script>
 	@endsection
