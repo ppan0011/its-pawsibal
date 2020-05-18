@@ -8845,11 +8845,11 @@ textarea.form-control {
   font-size: 24px; }
 
 .ftco-section {
-  padding: 7em 0;
+  padding: 4em 0;
   position: relative; }
   @media (max-width: 767.98px) {
     .ftco-section {
-      padding: 6em 0; } }
+      padding: 4em 0; } }
 
 .ftco-bg-dark {
   background: #3c312e; }
@@ -9839,4 +9839,22 @@ textarea.form-control {
 
 .widthOnHover:hover {
   transform: scale(1.1);
+}
+
+.learnMore:hover {
+  color: #00bd56;
+  padding: 0rem !important;
+}
+.learnMore {
+  padding: 0rem !important;
+}
+
+.chart-wrapper {
+ position: relative;
+    padding-bottom: 40%;
+}
+
+.chart-inner {
+position: absolute;
+    width: 100%; height: 100%;
 }
