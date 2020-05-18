@@ -1,6 +1,6 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 09/05/2020 10:46
+    Creation date: 17/05/2020 13:56
     */
 
     @font-face {
@@ -37,12 +37,16 @@
   font-smoothing: antialiased;
     }
 
-    .flaticon-koala:before { content: "\f100"; }
-.flaticon-interface:before { content: "\f101"; }
-.flaticon-interface-1:before { content: "\f102"; }
-.flaticon-health-clinic:before { content: "\f103"; }
+    .flaticon-signs:before { content: "\f100"; }
+.flaticon-signs-1:before { content: "\f101"; }
+.flaticon-buildings:before { content: "\f102"; }
+.flaticon-animals:before { content: "\f103"; }
+.flaticon-health-clinic:before { content: "\f104"; }
+.flaticon-interface:before { content: "\f105"; }
     
-    $font-Flaticon-koala: "\f100";
-    $font-Flaticon-interface: "\f101";
-    $font-Flaticon-interface-1: "\f102";
-    $font-Flaticon-health-clinic: "\f103";
+    $font-Flaticon-signs: "\f100";
+    $font-Flaticon-signs-1: "\f101";
+    $font-Flaticon-buildings: "\f102";
+    $font-Flaticon-animals: "\f103";
+    $font-Flaticon-health-clinic: "\f104";
+    $font-Flaticon-interface: "\f105";
