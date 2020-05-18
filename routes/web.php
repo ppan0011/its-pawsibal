@@ -34,4 +34,5 @@ Route::get('/local-rules', function () {
 });
 
 Route::get('getRecordsByRegion', 'SpeciesCategoryController@getRecordsByRegion');
+Route::get('getRecordsBySuburbs', 'SuburbAffectedController@getRecordsBySuburbs');
 Route::get('getRecordsBySpecies', 'SpeciesCategoryController@getRecordsBySpecies');
