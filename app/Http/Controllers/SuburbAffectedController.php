@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\SpeciesCategory;
+use App\SuburbAffected;
 use Illuminate\Http\Request;
 
-class SpeciesCategoryController extends Controller
+class SuburbAffectedController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class SpeciesCategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\SpeciesCategory  $speciesCategory
+     * @param  \App\SuburbAffected  $suburbAffected
      * @return \Illuminate\Http\Response
      */
-    public function show(SpeciesCategory $speciesCategory)
+    public function show(SuburbAffected $suburbAffected)
     {
         //
     }
@@ -52,10 +52,10 @@ class SpeciesCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\SpeciesCategory  $speciesCategory
+     * @param  \App\SuburbAffected  $suburbAffected
      * @return \Illuminate\Http\Response
      */
-    public function edit(SpeciesCategory $speciesCategory)
+    public function edit(SuburbAffected $suburbAffected)
     {
         //
     }
@@ -64,10 +64,10 @@ class SpeciesCategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\SpeciesCategory  $speciesCategory
+     * @param  \App\SuburbAffected  $suburbAffected
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SpeciesCategory $speciesCategory)
+    public function update(Request $request, SuburbAffected $suburbAffected)
     {
         //
     }
@@ -75,24 +75,19 @@ class SpeciesCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\SpeciesCategory  $speciesCategory
+     * @param  \App\SuburbAffected  $suburbAffected
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SpeciesCategory $speciesCategory)
+    public function destroy(SuburbAffected $suburbAffected)
     {
         //
     }
 
-    public function getRecordsByRegion()
-    {
-        $data = SpeciesCategory::where('region', 'VIC')->paginate(12);
-        return response()->json($data);
-    }
-
-    public function getRecordsBySpecies(Request $request)
+    public function getRecordsBySuburbs(Request $request)
     {
         $suburb = $request->suburb;
-        $data = SpeciesCategory::where('suburbs', 'like', $suburb)->paginate(9);
+
+        $data = SuburbAffected::where('suburb', 'like', $suburb)->get();
         return response()->json($data);
     }
 }
