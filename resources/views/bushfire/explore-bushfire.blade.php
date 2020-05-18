@@ -64,5 +64,5 @@
 
 	@section('scripts')
 	@parent
-	<script type="text/javascript" src="{{ asset('js/explore-bushfires.js') }}"></script>
+	<script type="text/javascript" src="{{ secure_asset('js/explore-bushfires.js') }}"></script>
 	@endsection

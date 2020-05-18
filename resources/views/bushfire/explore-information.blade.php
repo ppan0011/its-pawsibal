@@ -91,10 +91,10 @@
 	@section('scripts')
 	@parent
 
-	<script src="{{ asset('js/explore-area.js') }}"></script>
+	<script src="{{ secure_asset('js/explore-area.js') }}"></script>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6NqKaeopGxcPNpfE8jEIF04J8Aa1nVT8&libraries=places&callback=initAutocomplete" async defer></script>
-	<script type="text/javascript" src="{{ asset('js/highcharts.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/exporting.js') }}"></script>
+	<script type="text/javascript" src="{{ secure_asset('js/highcharts.js') }}"></script>
+	<script type="text/javascript" src="{{ secure_asset('js/exporting.js') }}"></script>
 	<script type="text/javascript">
 		$('.exploreArealink').addClass( "active" );
 		$('.homelink').removeClass( "active" );
