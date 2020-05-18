@@ -26,6 +26,7 @@ function initAutocomplete() {
                         if (place.address_components[i].types[0] == "locality")
                         {
                             suburb = place.address_components[i].long_name;
+                            $('.suburbName').text(suburb);
                         }
                     }
                 }
@@ -38,12 +39,15 @@ function initAutocomplete() {
                 long = place.geometry.location.lng();
             }
 
-            // $.when(speciesDetails(lat,long), bushfireDetails(lat,long), suburbDetails(lat,long), distanceDetails(lat,long)).then(function(){
-            //     console.log("in");
-            // });
+            $.when(speciesDetails(lat,long), bushfireDetails(lat,long), suburbDetails(lat,long), distanceDetails(lat,long)).then(function(){
+
+            });
 
             $.when(chartDetails(suburb)).then(function(){
-                
+                $('.resultsDetailSection').slideDown();
+                $('html,body').animate({
+                    scrollTop: $(".resultsDetailSection").position().top-20},
+                    'slow');
             });
         //   $(document).ajaxComplete(function(){
 
@@ -68,7 +72,7 @@ function bushfireDetails(lat,long) {
     $.ajax({
         url :"https://bushfire-victoria.herokuapp.com/bushfire/"+long+" "+lat,
         success : function(parsed_json) {
-            console.log(parsed_json);
+            console.log(JSON.parse(parsed_json));
             $('.detailsSection').append("<h4>"+parsed_json+"</h4>");
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
@@ -81,7 +85,7 @@ function suburbDetails(lat,long) {
     $.ajax({
         url :"https://bushfire-victoria.herokuapp.com/suburb/"+long+" "+lat,
         success : function(parsed_json) {
-            console.log(parsed_json);
+            console.log(JSON.parse(parsed_json));
             $('.detailsSection').append("<h4> You are in: <b>"+parsed_json+"</b> Suburb.</h4>");
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
@@ -94,7 +98,8 @@ function distanceDetails(lat,long) {
     $.ajax({
         url :"https://bushfire-victoria.herokuapp.com/distance/"+long+" "+lat,
         success : function(parsed_json) {
-            console.log(parsed_json);
+            console.log(JSON.parse(parsed_json)[0].distance);
+            $('.distanceDetails').text(JSON.parse(parsed_json)[0].distance+" km(s).");
             // $('.detailsSection').append("<h4> "+parsed_json+"</h4>");
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
@@ -159,33 +164,38 @@ function chartDetails(suburb) {
 }
 
 function getdata(suburb) {
-    
+
     var series = {
         type: 'pie',
-        name: '',
-        data: []
+        name: 'Percentage of Area:',
+        data: [{"name":"Total Area of the Suburb","y":11.46},{"name":"Affected area","y":100 - 15.46}]
     };
 
-    // $.ajax({
-    //     url: 'getRecordsBySuburbs',
-    //     type: 'get',
-    //     dataType: 'json',
-    //     data: {
-    //         suburb: suburb
-    //     },
-    //     success:function(response) {
-            
-    //         console.log("Response region: ");
-    //         console.log(response);
-    //     }
-    // });
+    $.ajax({
+        url: 'getRecordsBySuburbs',
+        type: 'get',
+        dataType: 'json',
+        data: {
+            suburb: suburb
+        },
+        success:function(response) {
 
-    for (var i = 0; i < 25; i++) {
-        series.data.push({
-            name: i.toString(),
-            y: 754 + i
-        });
-    }
+            console.log("Response region: ");
+            console.log(response[0].areaaffected);
+        }
+    });
+
+    // console.log(series);
+    // for (var i = 0; i < 25; i++) {
+
+    //     series.data.push({
+    //         name: "Total Area of the Suburb",
+    //                 y: 100 
+    //     },{
+    //         name: "Total Area of the Suburb",
+    //                 y: 100 
+    //     });
+    // }
     return series;
 }
 

@@ -47,7 +47,7 @@
 	</section>
 
 	<!-- Section: Ajax Details -->
-	<section class="ftco-section ftco-no-pt ftco-no-pb bg-light">
+	<section class="ftco-section ftco-no-pt ftco-no-pb bg-light resultsDetailSection">
 		<div class="container">
 			<div class="row d-flex no-gutters">
 				<div class="col-md-6 pb-3" >
@@ -63,21 +63,21 @@
 							<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-buildings"></span></div>
 							<div class="text pl-3">
 								<h4>Suburb</h4>
-								<p>Malvern East</p>
+								<p class="suburbName">Malvern East</p>
 							</div>
 						</div>
 						<div class="col-md-12 services-2 w-100 d-flex">
 							<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-signs"></span></div>
 							<div class="text pl-3">
 								<h4>Distance from Nearest Bushfire:</h4>
-								<p>20 km</p>
+								<p class="distanceDetails">20 km</p>
 							</div>
 						</div>
 						<div class="col-md-12 services-2 w-100 d-flex">
 							<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-animals"></span></div>
 							<div class="text pl-3">
-								<h4>Animals Affected</h4>
-								<p>Click here to know more</p>
+								<h4>Find Nearby Hospitals</h4>
+								<p><a href="{{ url('nearby-hospitals') }}">Click here to begin</a></p>
 							</div>
 						</div>
 					</div>
@@ -85,7 +85,6 @@
 			</div>
 		</div>
 	</section>
-
 
 	@endsection
 	
@@ -100,5 +99,6 @@
 		$('.exploreArealink').addClass( "active" );
 		$('.homelink').removeClass( "active" );
 		$('.bushfireslink').removeClass( "active" );
+		$('.resultsDetailSection').hide();
 	</script>
 	@endsection
