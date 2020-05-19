@@ -45,20 +45,11 @@
   
   <!-- <script src="{{ asset('js/scrollax.min.js') }}"></script> -->
   <script src="{{ secure_asset('js/main.js') }}"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script type="text/javascript" src="{{ asset('js/stats.js') }}"></script>
 
-<!--   <script type="text/javascript">
-    $( document ).ready(function() {
-      var settings = {
-        "url": "https://api.airvisual.com/v2/city?city=Los Angeles&state=California&country=USA&key=ad9e4ae1-b64f-4ef6-bb82-17cb50d35362",
-        "method": "GET",
-        "timeout": 0,
-      };
-
-      $.ajax(settings).done(function (response) {
-        console.log(response);
-      });
-    });
-  </script> -->
   @show
 
   @include('layouts.footer')
