@@ -9,7 +9,7 @@
 		<div class="row no-gutters slider-text align-items-end">
 			<div class="col-md-9 ftco-animate pb-5">
 				<p class="breadcrumbs mb-2">
-					<span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> / 
+					<span class="mr-2"><a href="{{ url('home') }}">Home <i class="ion-ios-arrow-forward"></i></a></span> / 
 					<span>&nbsp;Explore Bushfire Regions <i class="ion-ios-arrow-forward"></i></span></p>
 					<h1 class="mb-0 bread">Explore Bushfire Regions</h1>
 				</div>
@@ -18,6 +18,22 @@
 	</section>
 
 	<section class="ftco-section bg-light">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="jumbotron">
+					<h1 class="display-4">Exploring is fun!</h1>
+					<p class="lead">Do you want to know what animals were affected in your suburb or any nearby suburbs? The following activity will give you the information of the bushfire affected suburbs and the threatened species in those suburbs.</p>
+					<hr class="my-4">
+					<p>We will help you to figure out if your suburb is one of them and help you find the animals that are affected in the region that you choose.</p>
+					<p class="lead">
+						<a class="btn learnMore" href="#" role="button">Learn more</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section bg-light suburbDetails">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-7 heading-section text-center ftco-animate fadeInUp ftco-animated" >
@@ -52,7 +68,7 @@
 		<div class="container">
 			<div class="row justify-content-center pb-5 mb-3" >
 				<div class="col-md-7 heading-section text-center ftco-animate">
-					<h4 class="checksss">The following animals were affected in this Suburb</h4>
+					<h4 class="checksss">The following threatened animals were affected</h4>
 				</div>
 			</div>
 			<div class="row d-flex animal-rows">

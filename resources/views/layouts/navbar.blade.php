@@ -7,10 +7,11 @@
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active homelink"><a href="{{ url('home') }}" class="nav-link">Home</a></li>
-        <li class="nav-item bushfireslink"><a href="{{ url('bushfires') }}" class="nav-link">Explore Bushfire Regions</a></li>
+        <li class="nav-item bushfireslink"><a href="{{ url('bushfires') }}" class="nav-link">Bushfire Regions</a></li>
         <li class="nav-item ruleslink"><a href="{{ url('local-rules') }}" class="nav-link">Local Rules</a></li>
         <li class="nav-item exploreArealink"><a href="{{ url('explore-information') }}" class="nav-link">Explore your area</a></li>
         <li class="nav-item hospitallink"><a href="{{ url('nearby-hospitals') }}" class="nav-link">Emergency Services</a></li>
+        
         <!-- <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Link</a></li> -->

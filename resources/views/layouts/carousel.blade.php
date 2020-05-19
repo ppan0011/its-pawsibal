@@ -12,8 +12,8 @@
                 <span class="flaticon-interface"></span>
               </div>
               <div class="media-body">
-                <h3 class="heading">Explore Bushfire Regions</h3>
-                <p>Some text about bushfire</p>
+                <h3 class="heading">View Bushfire Regions</h3>
+                <p>Find information about suburbs and species</p>
                 <a href="{{ url('bushfires') }}" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
               </div>
             </div>      
@@ -24,9 +24,9 @@
                 <span class="flaticon-animals"></span>
               </div>
               <div class="media-body">
-                <h3 class="heading">Vulnerable Species</h3>
-                <p>Some text</p>
-                <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+                <h3 class="heading">Explore your Area</h3>
+                <p>View whether your location is affected by bushfires</p>
+                <a href="{{ url('explore-information') }}" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
               </div>
             </div>    
           </div>
@@ -36,9 +36,9 @@
                 <span class="flaticon-health-clinic"></span>
               </div>
               <div class="media-body">
-                <h3 class="heading">Nearest wildlife clinics</h3>
-                <p>Some text</p>
-                <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+                <h3 class="heading">Species Observations</h3>
+                <p>View recently observed species relative to recent bushfires</p>
+                <a href="{{ url('observation') }}" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
               </div>
             </div>      
           </div>

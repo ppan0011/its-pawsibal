@@ -101,7 +101,7 @@
 		$('.bushfireslink').removeClass( "active" );
 		$('.resultsDetailSection').hide();
 		$('.askLocation').click(function(){
-			
+			navigator.geolocation.getCurrentPosition(navigatorFunction);
 		});
 	</script>
 	@endsection
