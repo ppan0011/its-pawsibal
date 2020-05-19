@@ -30,7 +30,7 @@
 				</div>
 
 				<div class="col-md-12 heading-section text-center ftco-animate fadeInUp ftco-animated mt-3" >	
-					<iframe src="https://phoenix-rstudio-work.shinyapps.io/Animals/" width="100%" height="400" title="Species Observations"></iframe>
+					<iframe src="https://phoenix-rstudio-work.shinyapps.io/dashboard_shiny/" width="100%" height="400" title="Species Observations"></iframe>
 				</div>
 			</div>
 		</div>
