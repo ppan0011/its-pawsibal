@@ -39,16 +39,13 @@ function initAutocomplete() {
                 long = place.geometry.location.lng();
             }
 
-            $.when(speciesDetails(lat,long), bushfireDetails(lat,long), suburbDetails(lat,long), distanceDetails(lat,long)).then(function(){
-
-            });
-
-            $.when(chartDetails(suburb)).then(function(){
-                $('.resultsDetailSection').slideDown();
+            $.when(speciesDetails(lat,long), bushfireDetails(lat,long), suburbDetails(lat,long), distanceDetails(lat,long), chartDetails(suburb)).then(function(){
+                 $('.resultsDetailSection').slideDown();
                 $('html,body').animate({
                     scrollTop: $(".resultsDetailSection").position().top-20},
                     'slow');
             });
+
         //   $(document).ajaxComplete(function(){
 
         //     $('.detailsSection').show();
@@ -56,6 +53,20 @@ function initAutocomplete() {
         // });
     }
 });
+}
+
+function navigatorFunction(position) 
+{
+    var lat = position.coords.latitude;
+    var long = position.coords.longitude;
+    var suburb = "Malvern East";
+
+    $.when(speciesDetails(lat,long), bushfireDetails(lat,long), suburbDetails(lat,long), distanceDetails(lat,long), chartDetails(suburb)).then(function(){
+                 $('.resultsDetailSection').slideDown();
+                $('html,body').animate({
+                    scrollTop: $(".resultsDetailSection").position().top-20},
+                    'slow');
+            });
 }
 
 function speciesDetails(lat,long) {
@@ -72,7 +83,15 @@ function bushfireDetails(lat,long) {
     $.ajax({
         url :"https://bushfire-victoria.herokuapp.com/bushfire/"+long+" "+lat,
         success : function(parsed_json) {
+            var parsedArray = JSON.parse(parsed_json);
+            var suburb = "";
             console.log(JSON.parse(parsed_json));
+
+            for (var i = parsedArray.length - 1; i >= 0; i--) 
+            {   
+                suburb = parsedArray[i].message_key;
+                console.log("gewt "+suburb);
+            };
             $('.detailsSection').append("<h4>"+parsed_json+"</h4>");
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
@@ -85,7 +104,16 @@ function suburbDetails(lat,long) {
     $.ajax({
         url :"https://bushfire-victoria.herokuapp.com/suburb/"+long+" "+lat,
         success : function(parsed_json) {
+            var parsedArray = JSON.parse(parsed_json);
+            var suburb = "";
             console.log(JSON.parse(parsed_json));
+
+            for (var i = parsedArray.length - 1; i >= 0; i--) 
+            {   
+                suburb = parsedArray[i].suburb;
+                console.log(suburb);
+            };
+
             $('.detailsSection').append("<h4> You are in: <b>"+parsed_json+"</b> Suburb.</h4>");
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
@@ -99,7 +127,43 @@ function distanceDetails(lat,long) {
         url :"https://bushfire-victoria.herokuapp.com/distance/"+long+" "+lat,
         success : function(parsed_json) {
             console.log(JSON.parse(parsed_json)[0].distance);
-            $('.distanceDetails').text(JSON.parse(parsed_json)[0].distance+" km(s).");
+
+            var parsedArray = JSON.parse(parsed_json);
+            var suburb = "";
+            console.log(JSON.parse(parsed_json));
+
+            for (var i = parsedArray.length - 1; i >= 0; i--) 
+            {   
+                suburb = parsedArray[i].distance;
+            };
+
+            $('.distanceDetails').text(suburb+" km(s).");
+            // $('.detailsSection').append("<h4> "+parsed_json+"</h4>");
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+        }  
+    });
+}
+
+function distanceDetailsLocation(position) {
+    var lat = position.coords.latitude;
+        var long = position.coords.longitude;
+    $.ajax({
+        url :"https://bushfire-victoria.herokuapp.com/distance/"+long+" "+lat,
+        success : function(parsed_json) {
+            console.log(JSON.parse(parsed_json)[0].distance);
+
+            var parsedArray = JSON.parse(parsed_json);
+            var suburb = "";
+            console.log(JSON.parse(parsed_json));
+
+            for (var i = parsedArray.length - 1; i >= 0; i--) 
+            {   
+                suburb = parsedArray[i].distance;
+            };
+
+            $('.distanceDetails').text(suburb+" km(s).");
             // $('.detailsSection').append("<h4> "+parsed_json+"</h4>");
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
@@ -160,7 +224,6 @@ function chartDetails(suburb) {
             series: [getdata(suburb)]
         });
     }
-
 }
 
 function getdata(suburb) {

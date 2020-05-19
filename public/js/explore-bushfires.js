@@ -1,5 +1,11 @@
 $( document ).ready(function() {
 
+	$('.learnMore').click(function(){
+        $('html,body').animate({
+            scrollTop: $(".suburbDetails").offset().top},
+            'slow');
+    });
+    
 	// Firstly hide all the unimportant Divs
 	$(".suburb-section").hide();
 	$(".animal-section").hide();
