@@ -25,6 +25,10 @@ Route::get('/nearby-hospitals', function () {
     return view('nearby-hospitals');
 });
 
+Route::get('/stats', function () {
+    return view('stats/stats');
+});
+
 Route::get('/bushfires', function () {
     return view('bushfire/explore-bushfire');
 });
