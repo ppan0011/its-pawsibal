@@ -58,11 +58,11 @@
 	@section('scripts')
 	@parent
 
-	<script src="{{ asset('js/hospitals.js') }}"></script>
+	<script src="{{ secure_asset('js/hospitals.js') }}"></script>
 
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6NqKaeopGxcPNpfE8jEIF04J8Aa1nVT8&libraries=places&callback=initAutocomplete"></script>
 
-	<script src="{{ asset('js/map-icons.min.js') }}"></script>
+	<script src="{{ secure_asset('js/map-icons.min.js') }}"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('.mapDetails').hide();
