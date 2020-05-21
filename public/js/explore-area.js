@@ -122,7 +122,7 @@ function suburbDetails(lat,long) {
             for (var i = parsedArray.length - 1; i >= 0; i--) 
             {   
                 suburb = parsedArray[i].suburb;
-                console.log(suburb);
+                $('.suburbName').text(suburb);
             };
 
             $('.detailsSection').append("<h4> You are in: <b>"+parsed_json+"</b> Suburb.</h4>");
