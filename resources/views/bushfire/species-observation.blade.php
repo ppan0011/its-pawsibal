@@ -22,7 +22,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-12 heading-section text-center ftco-animate fadeInUp ftco-animated" >
-					<p>The below plot and map are two different visual representations of the same observational data. Certain classes of species being observed in 2020 are shown. Distance of each animal species observed is calculated from each point of the burnt region in Victoria and minimum of that distance is shown on both the plot and the map.</p>
+					<p>The below plot and map are two different visual representations of the same observational data. Certain classes of species being observed in 2020 are shown. Distance of each animal species observed is calculated from each point of the burnt region in Victoria and minimum of that distance is shown on both the plot and the map. The distance mentioned here is in kilometers (km).</p>
 				</div>
 
 				<div class="col-md-12 heading-section text-center ftco-animate fadeInUp ftco-animated" >
