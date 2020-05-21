@@ -188,15 +188,13 @@
        l: 20,
        pad: 0
      },
-     paper_bgcolor: '#e1fff1',
-     plot_bgcolor: '#e1fff1',
      showlegend: true,
      annotations: [{
        x: 0,
        y: 0,
        xref: 'paper',
        yref: 'paper',
-       text: 'Source: <a href="https://earthdata.nasa.gov/earth-observation-data/near-real-time/firms/active-fire-data" style="color: rgb(255,255,255)">NASA</a>',
+       text: 'Source: <a href="https://earthdata.nasa.gov/earth-observation-data/near-real-time/firms/active-fire-data" >NASA</a>',
        showarrow: false
      }]
    };
