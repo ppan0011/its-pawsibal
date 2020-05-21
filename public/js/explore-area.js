@@ -60,13 +60,24 @@ function navigatorFunction(position)
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
     var suburb = "Malvern East";
+    var geocoder = new google.maps.Geocoder;
 
-    $.when(speciesDetails(lat,long), bushfireDetails(lat,long), suburbDetails(lat,long), distanceDetails(lat,long), chartDetails(suburb)).then(function(){
+    console.log(position);
+    var latlng = {lat: lat, lng: long};
+
+    geocoder.geocode({'location': latlng}, function(results, status) {
+        console.log();
+        if (status == google.maps.GeocoderStatus.OK) {
+            $.when(speciesDetails(lat,long), bushfireDetails(lat,long), suburbDetails(lat,long), distanceDetails(lat,long), chartDetails(results[0].address_components[2].long_name)).then(function(){
                  $('.resultsDetailSection').slideDown();
                 $('html,body').animate({
                     scrollTop: $(".resultsDetailSection").position().top-20},
                     'slow');
             });
+        } else {
+            alert('There was an error in your location tracking. Please enter your suburb details in the text box manually.');
+        }
+    });
 }
 
 function speciesDetails(lat,long) {
