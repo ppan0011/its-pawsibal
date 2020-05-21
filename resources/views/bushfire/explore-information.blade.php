@@ -63,14 +63,14 @@
 							<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-buildings"></span></div>
 							<div class="text pl-3">
 								<h4>Suburb</h4>
-								<p class="suburbName">Malvern East</p>
+								<p class="suburbName"></p>
 							</div>
 						</div>
 						<div class="col-md-12 services-2 w-100 d-flex">
 							<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-signs"></span></div>
 							<div class="text pl-3">
 								<h4>Distance from Nearest Bushfire:</h4>
-								<p class="distanceDetails">20 km</p>
+								<p class="distanceDetails"></p>
 							</div>
 						</div>
 						<div class="col-md-12 services-2 w-100 d-flex">

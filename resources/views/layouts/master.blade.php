@@ -45,9 +45,9 @@
   
   <!-- <script src="{{ asset('js/scrollax.min.js') }}"></script> -->
   <script src="{{ secure_asset('js/main.js') }}"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script type="text/javascript" src="{{ secure_asset('js/stats.js') }}"></script>
 
   @show
