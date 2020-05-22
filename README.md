@@ -1,13 +1,13 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
-
-<p>
+<center>
 	<img src="https://github.com/ppan0011/its-pawsibal/blob/master/public/images/logo.png" width="400">
-</p>
+</center>
 
 
-## About Laravel
+## About Its Pawsibal
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Its Pawsibal is a web application built over the Laravel web framework which has elegant syntax usage throughout the system.
+
+
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
