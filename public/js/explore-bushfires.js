@@ -1,11 +1,11 @@
 $( document ).ready(function() {
 
 	$('.learnMore').click(function(){
-        $('html,body').animate({
-            scrollTop: $(".suburbDetails").offset().top},
-            'slow');
-    });
-    
+		$('html,body').animate({
+			scrollTop: $(".suburbDetails").offset().top},
+			'slow');
+	});
+
 	// Firstly hide all the unimportant Divs
 	$(".suburb-section").hide();
 	$(".animal-section").hide();
@@ -60,7 +60,7 @@ $( document ).ready(function() {
 				// $('html,body').animate({
 				// 	scrollTop: $(".suburb-section").offset().top},
 				// 	'slow');
-		});
+			});
 
 	// Action: Trigger the next page button to load data using AJAX
 	$(document).on("click", ".nextpage" , function() {
@@ -208,6 +208,23 @@ $( document ).ready(function() {
 				console.log(response);
 			}
 		});
+	});
+
+	$(document).on("keypress", '.suburbSearchText', function(){
+		$.ajax({
+			url: 'searchSuburb',
+			type: 'get',
+			dataType: 'json',
+			data: {
+				suburb: $(this).val()
+			},
+			success:function(response) {
+				console.log("Response region: ");
+				console.log(response);
+				// $('.suburb-rows').append("<div class="+"col-md-4 d-flex ftco-animate"+"><div class="+"blog-entry"+"><a href="+"https://maps.google.com/maps?q=werribee"+" class="+"block-20 rounded"+"><iframe src="+"https://maps.google.com/maps?q='"+suburbValue+"'&t=&z=12&ie=UTF8&iwloc=&output=embed"+" frameborder=\"0 \" style=\"border:0; width: -webkit-fill-available; height: inherit;\" allowfullscreen></iframe></a><div class=\"text p-4 suburb-text\"><h3 style=\"text-align: center;\">"+suburbValue+"</h3><button class=\"btn animalButton\" value="+suburbValue+" style=\"margin-bottom: 5px;\" onMouseOver=\"this.style.color='#00bd56'\" onMouseOut=\"this.style.color='#000'\">View Affected Animals</button>						</div></div></div>");
+			}
+		});
+		// console.log("SAGD");
 	});
 
 	$('.bushfireslink').addClass( "active" );
