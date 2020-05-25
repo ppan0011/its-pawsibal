@@ -165,6 +165,7 @@ $( document ).ready(function() {
 
 	// Action: Trigger the know more button to load data using AJAX for animal species
 	$(document).on("click", ".animalButton" , function() {
+		console.log($(this).val());
 		$('.animal-rows').html("");
 		$('.animalButton').parent().css("background-color", "#fff");
 		$(this).parent().css("background-color", "#71dda2");
@@ -188,7 +189,7 @@ $( document ).ready(function() {
 							{
 								for (var i = 0; i < response.data.length; i++)
 								{
-									$('.animal-rows').append("<div class=\"col-md-4 d-flex\"><div class=\"blog-entry\"><a class=\"block-20 rounded widthOnHover\" style=\"background-image: url('/images/"+response.data[i].common_name+".jpg');\"></a><div class=\"text p-4 suburb-text\">	<h5 style=\"text-align: center;\">"+response.data[i].common_name+"</h5><div></div></div>");
+									$('.animal-rows').append("<div class=\"col-md-4 d-flex\"><div class=\"blog-entry\"><a class=\"block-20 rounded widthOnHover\" data-toggle=\"modal\" data-target=\"#exampleModal\" data-filter=\""+response.data[i].common_name+"\" style=\"background-image: url('/images/"+response.data[i].common_name+".jpg');\"></a><div class=\"text p-4 suburb-text\">	<h5 style=\"text-align: center;\">"+response.data[i].common_name+"</h5><div></div></div>");
 								}
 							}	
 						}
@@ -228,12 +229,29 @@ $( document ).ready(function() {
 		// console.log("SAGD");
 	});
 
+	$(document).on("click", '.widthOnHover', function() {
+		$('#exampleModalLabel').text($(this).data('filter'));
+
+		$.ajax({
+			url: 'getSingleSpeciesDetail',
+			type: 'get',
+			dataType: 'json',
+			data: {
+				species: $(this).data('filter')
+			},
+			success:function(response) {
+				$('.animalCommonName').text(response.common_name);
+				$('.animalScientificName').text(response.scientific_name);
+				$('.animalCategory').text(response.category);
+				$('.animalConservationStatus').text(response.conservation_status);
+			}
+		});
+	});
+
 	$(document).on("change", '.suburbSelect', function(){
 
 		var suburbValue = $(this).val().split(" ");
 		var givenvalue = "";
-
-		// console.log(suburbValue);
 
 		for (var i = 0; i < suburbValue.length; i++) 
 		{
@@ -243,9 +261,6 @@ $( document ).ready(function() {
 			}
 		}
 
-		// console.log(givenvalue.split(",")[1]);
-
-		// console.log("https://maps.google.com/maps?q="+$(this).val()+"&t=&z=12&ie=UTF8&iwloc=&output=embed");
 		$('.suburb-rows div').remove();
 		$('.animal-rows').html("");
 		if (suburbValue.length > 1)

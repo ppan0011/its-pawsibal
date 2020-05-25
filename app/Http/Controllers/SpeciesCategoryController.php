@@ -17,7 +17,7 @@ class SpeciesCategoryController extends Controller
     {
         $suburb = $request->suburb;
         
-        $data = SpeciesCategory::where('suburbs', 'like', $suburb)->paginate(9);
+        $data = SpeciesCategory::where('suburbs', 'like', $suburb."%")->paginate(9);
         return response()->json($data);
     }
 
@@ -34,4 +34,12 @@ class SpeciesCategoryController extends Controller
         $data = SpeciesCategory::where('suburbs', $suburb)->get();
         return response()->json($data);
     }       
+
+    public function getSingleSpeciesDetail(Request $request)
+    {
+        $species = $request->species;
+
+        $data = SpeciesCategory::where('common_name', $species)->first();
+        return response()->json($data);
+    }    
 }

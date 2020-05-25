@@ -50,3 +50,4 @@ Route::get('getRecordsBySuburbs', 'SuburbAffectedController@getRecordsBySuburbs'
 Route::get('getRecordsBySpecies', 'SpeciesCategoryController@getRecordsBySpecies');
 Route::get('searchSuburb', 'SpeciesCategoryController@searchSuburb');
 Route::get('getSuburbs', 'SpeciesCategoryController@getSuburbs');
+Route::get('getSingleSpeciesDetail', 'SpeciesCategoryController@getSingleSpeciesDetail');
