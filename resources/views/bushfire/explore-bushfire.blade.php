@@ -36,12 +36,22 @@
 	<section class="ftco-section bg-light suburbDetails">
 		<div class="container">
 			<div class="row justify-content-center">
-				<div class="col-md-7 heading-section text-center ftco-animate fadeInUp ftco-animated" >
-					<h2>Select a region you want to view:</h2>
-					<select class="custom-select">
+				<div class="col-md-4 heading-section text-center ftco-animate fadeInUp ftco-animated" >
+					<h2>Select a region:</h2>
+					<select class="custom-select regionSelect" style="height:50px;">
 						<option value="">Select a region</option>
 						<option value="Victoria">Victoria</option>
 					</select>
+				</div>
+				<div class="col-md-4 heading-section text-center ftco-animate fadeInUp ftco-animated" >
+					<h2>OR</h2>
+				</div>
+				<div class="col-md-4 heading-section text-center ftco-animate fadeInUp ftco-animated" >
+					<h2>Search a suburb</h2>
+					<select class="custom-select suburbSelect" style="height:50px;" >
+						<option value="">Select a suburb</option>
+					</select>
+					<!-- <input type="text" name="suburbNameSearch" class="form-control suburbSearchText" placeholder="Enter a suburb name below"> -->
 				</div>
 			</div>
 		</div>

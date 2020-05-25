@@ -11,7 +11,7 @@ $( document ).ready(function() {
 	$(".animal-section").hide();
 
 	// Action: Trigger the select menu and load data using ajax
-	$( ".custom-select" ).change(function() {
+	$( ".regionSelect" ).change(function() {
 
 		$.ajax({
 			url: 'getRecordsByRegion',
@@ -39,7 +39,7 @@ $( document ).ready(function() {
 
 							}
 							else {
-								$('.suburb-rows').append("<div class="+"col-md-4 d-flex ftco-animate"+"><div class="+"blog-entry"+"><a href="+"https://maps.google.com/maps?q=werribee"+" class="+"block-20 rounded"+"><iframe src="+"https://maps.google.com/maps?q='"+suburbValue+"'&t=&z=12&ie=UTF8&iwloc=&output=embed"+" frameborder=\"0 \" style=\"border:0; width: -webkit-fill-available; height: inherit;\" allowfullscreen></iframe></a><div class=\"text p-4 suburb-text\"><h3 style=\"text-align: center;\">"+suburbValue+"</h3><button class=\"btn animalButton\" value="+suburbValue+" style=\"margin-bottom: 5px;\" onMouseOver=\"this.style.color='#00bd56'\" onMouseOut=\"this.style.color='#000'\">View Affected Animals</button>						</div></div></div>");
+								$('.suburb-rows').append("<div class="+"col-md-4 d-flex ftco-animate suburb-cols"+"><div class="+"blog-entry"+"><a href="+"https://maps.google.com/maps?q=werribee"+" class="+"block-20 rounded"+"><iframe src="+"https://maps.google.com/maps?q='"+suburbValue+"'&t=&z=12&ie=UTF8&iwloc=&output=embed"+" frameborder=\"0 \" style=\"border:0; width: -webkit-fill-available; height: inherit;\" allowfullscreen></iframe></a><div class=\"text p-4 suburb-text\"><h3 style=\"text-align: center;\">"+suburbValue+"</h3><button class=\"btn animalButton\" value="+suburbValue+" style=\"margin-bottom: 5px;\" onMouseOver=\"this.style.color='#00bd56'\" onMouseOut=\"this.style.color='#000'\">View Affected Animals</button>						</div></div></div>");
 							}
 									// console.log(suburbsLength);
 								}
@@ -210,21 +210,53 @@ $( document ).ready(function() {
 		});
 	});
 
-	$(document).on("keypress", '.suburbSearchText', function(){
+	$(document).on("change", '.regionSelect', function(){
 		$.ajax({
-			url: 'searchSuburb',
+			url: 'getSuburbs',
 			type: 'get',
 			dataType: 'json',
-			data: {
-				suburb: $(this).val()
-			},
 			success:function(response) {
-				console.log("Response region: ");
-				console.log(response);
-				// $('.suburb-rows').append("<div class="+"col-md-4 d-flex ftco-animate"+"><div class="+"blog-entry"+"><a href="+"https://maps.google.com/maps?q=werribee"+" class="+"block-20 rounded"+"><iframe src="+"https://maps.google.com/maps?q='"+suburbValue+"'&t=&z=12&ie=UTF8&iwloc=&output=embed"+" frameborder=\"0 \" style=\"border:0; width: -webkit-fill-available; height: inherit;\" allowfullscreen></iframe></a><div class=\"text p-4 suburb-text\"><h3 style=\"text-align: center;\">"+suburbValue+"</h3><button class=\"btn animalButton\" value="+suburbValue+" style=\"margin-bottom: 5px;\" onMouseOver=\"this.style.color='#00bd56'\" onMouseOut=\"this.style.color='#000'\">View Affected Animals</button>						</div></div></div>");
+
+				if(response.length > 0)
+				{
+					for (var i = 0; i < response.length; i++) {
+						$('.suburbSelect').append("<option value=\""+response[i].suburbs.toString()+"\">"+response[i].suburbs+"</option>");	
+					}
+				}
 			}
 		});
 		// console.log("SAGD");
+	});
+
+	$(document).on("change", '.suburbSelect', function(){
+
+		var suburbValue = $(this).val().split(" ");
+		var givenvalue = "";
+
+		// console.log(suburbValue);
+
+		for (var i = 0; i < suburbValue.length; i++) 
+		{
+			if(suburbValue.length > 1)
+			{
+				givenvalue = suburbValue+"\+"+givenvalue;
+			}
+		}
+
+		// console.log(givenvalue.split(",")[1]);
+
+		// console.log("https://maps.google.com/maps?q="+$(this).val()+"&t=&z=12&ie=UTF8&iwloc=&output=embed");
+		$('.suburb-rows div').remove();
+		$('.animal-rows').html("");
+		if (suburbValue.length > 1)
+		{
+			// console.log("https://maps.google.com/maps?q="+givenvalue.split(",")[1]+"&t=&z=12&ie=UTF8&iwloc=&output=embed");
+			$('.suburb-rows').append("<div class="+"col-md-4 d-flex ftco-animate"+"><div class="+"blog-entry"+"><a href="+"https://maps.google.com/maps?q=werribee"+" class="+"block-20 rounded"+"><iframe src="+"https://maps.google.com/maps?q="+givenvalue.split(",")[1]+"&t=&z=12&ie=UTF8&iwloc=&output=embed"+" frameborder=\"0 \" style=\"border:0; width: -webkit-fill-available; height: inherit;\" allowfullscreen></iframe></a><div class=\"text p-4 suburb-text\"><h3 style=\"text-align: center;\">"+$(this).val()+"</h3><button class=\"btn animalButton\" value="+$(this).val()+" style=\"margin-bottom: 5px;\" onMouseOver=\"this.style.color='#00bd56'\" onMouseOut=\"this.style.color='#000'\">View Affected Animals</button></div></div></div>");
+		}
+		else
+		{
+			$('.suburb-rows').append("<div class="+"col-md-4 d-flex ftco-animate"+"><div class="+"blog-entry"+"><a href="+"https://maps.google.com/maps?q=werribee"+" class="+"block-20 rounded"+"><iframe src="+"https://maps.google.com/maps?q="+suburbValue+"&t=&z=12&ie=UTF8&iwloc=&output=embed"+" frameborder=\"0 \" style=\"border:0; width: -webkit-fill-available; height: inherit;\" allowfullscreen></iframe></a><div class=\"text p-4 suburb-text\"><h3 style=\"text-align: center;\">"+$(this).val()+"</h3><button class=\"btn animalButton\" value="+$(this).val()+" style=\"margin-bottom: 5px;\" onMouseOver=\"this.style.color='#00bd56'\" onMouseOut=\"this.style.color='#000'\">View Affected Animals</button></div></div></div>");
+		}
 	});
 
 	$('.bushfireslink').addClass( "active" );
