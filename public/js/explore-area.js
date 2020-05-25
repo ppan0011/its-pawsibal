@@ -85,7 +85,11 @@ function speciesDetails(lat,long) {
         url :"https://bushfire-victoria.herokuapp.com/species/"+long+" "+lat,
         dataType : "json",
         success : function(parsed_json) {
+            $('.speciesDetailSection').slideDown();
             console.log(parsed_json);
+            for (var i = 0; i < parsed_json.length; i++) {
+                $('.tbody-details').append("<tr><td>"+parsed_json[i].comm_name+"</td><td>"+parsed_json[i].tax_group+"</td><td>"+parsed_json[i].pres_rank+"</td><td>"+parsed_json[i].threatened+"</td></tr>");
+            }
         }
     });
 }
@@ -96,12 +100,12 @@ function bushfireDetails(lat,long) {
         success : function(parsed_json) {
             var parsedArray = JSON.parse(parsed_json);
             var suburb = "";
-            console.log(JSON.parse(parsed_json));
+            //console.log(JSON.parse(parsed_json));
 
             for (var i = parsedArray.length - 1; i >= 0; i--) 
             {   
                 suburb = parsedArray[i].message_key;
-                console.log("gewt "+suburb);
+                //console.log("gewt "+suburb);
             };
             $('.detailsSection').append("<h4>"+parsed_json+"</h4>");
         },
@@ -117,7 +121,7 @@ function suburbDetails(lat,long) {
         success : function(parsed_json) {
             var parsedArray = JSON.parse(parsed_json);
             var suburb = "";
-            console.log(JSON.parse(parsed_json));
+            //console.log(JSON.parse(parsed_json));
 
             for (var i = parsedArray.length - 1; i >= 0; i--) 
             {   
@@ -137,18 +141,21 @@ function distanceDetails(lat,long) {
     $.ajax({
         url :"https://bushfire-victoria.herokuapp.com/distance/"+long+" "+lat,
         success : function(parsed_json) {
-            console.log(JSON.parse(parsed_json)[0].distance);
+            //console.log(JSON.parse(parsed_json)[0].distance);
 
             var parsedArray = JSON.parse(parsed_json);
             var suburb = "";
-            console.log(JSON.parse(parsed_json));
+            var link = "";
+            //console.log(JSON.parse(parsed_json));
 
             for (var i = parsedArray.length - 1; i >= 0; i--) 
             {   
                 suburb = parsedArray[i].distance;
+                link = parsedArray[i].explore;
             };
 
             $('.distanceDetails').text(suburb+" km(s).");
+            $('.distanceDetailsLink').html(link);
             // $('.detailsSection').append("<h4> "+parsed_json+"</h4>");
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
@@ -163,11 +170,11 @@ function distanceDetailsLocation(position) {
     $.ajax({
         url :"https://bushfire-victoria.herokuapp.com/distance/"+long+" "+lat,
         success : function(parsed_json) {
-            console.log(JSON.parse(parsed_json)[0].distance);
+            //console.log(JSON.parse(parsed_json)[0].distance);
 
             var parsedArray = JSON.parse(parsed_json);
             var suburb = "";
-            console.log(JSON.parse(parsed_json));
+            //console.log(JSON.parse(parsed_json));
 
             for (var i = parsedArray.length - 1; i >= 0; i--) 
             {   
@@ -275,6 +282,7 @@ function getdata(suburb) {
 
 $(function() {
     $('.detailsSection').hide();
+    $('.speciesDetailSection').hide();
 
     $('.learnMore').click(function(){
         $('html,body').animate({

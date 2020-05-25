@@ -12,7 +12,7 @@
 		<div class="row no-gutters slider-text align-items-end">
 			<div class="col-md-9 ftco-animate pb-5">
 				<p class="breadcrumbs mb-2">
-					<span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> / 
+					<span class="mr-2"><a href="{{ url('home') }}">Home <i class="ion-ios-arrow-forward"></i></a></span> / 
 					<span>&nbsp;Explore Your Area <i class="ion-ios-arrow-forward"></i></span></p>
 					<h1 class="mb-0 bread">Explore Your Area</h1>
 				</div>
@@ -70,7 +70,7 @@
 							<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-signs"></span></div>
 							<div class="text pl-3">
 								<h4>Distance from Nearest Bushfire:</h4>
-								<p class="distanceDetails"></p>
+								<div style="display: flex;flex-direction: row;"><p class="distanceDetails"></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="distanceDetailsLink"></p></div>
 							</div>
 						</div>
 						<div class="col-md-12 services-2 w-100 d-flex">
@@ -85,6 +85,38 @@
 			</div>
 		</div>
 	</section>
+	<section class="ftco-section ftco-no-pt ftco-no-pb bg-light speciesDetailSection" style="padding-top:100px !important;">
+		<div class="container">
+			<div class="row d-flex no-gutters">
+				<div class="col-md-12 pb-3" >
+					<h2>Animal Species Found in the location:</h2>
+					<div class="table-wrapper-scroll-y my-custom-scrollbar">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Species Name</th>
+								<th>Category</th>
+								<th>Likelihood of Occurrence</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody class="tbody-details">
+							
+						</tbody>
+						<tfoot>
+							<tr>
+								<th>Species Name</th>
+								<th>Category</th>
+								<th>Likelihood of Occurrence</th>
+								<th>Status</th>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	@endsection
 	
@@ -92,9 +124,12 @@
 	@parent
 
 	<script src="{{ secure_asset('js/explore-area.js') }}"></script>
+
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6NqKaeopGxcPNpfE8jEIF04J8Aa1nVT8&libraries=places&callback=initAutocomplete" async defer></script>
+
 	<script type="text/javascript" src="{{ secure_asset('js/highcharts.js') }}"></script>
 	<script type="text/javascript" src="{{ secure_asset('js/exporting.js') }}"></script>
+
 	<script type="text/javascript">
 		$('.exploreArealink').addClass( "active" );
 		$('.homelink').removeClass( "active" );
