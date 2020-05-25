@@ -5,12 +5,12 @@
     <h2 class="footer-heading">Data Credits</h2>
     <div class="block-21 mb-4 d-flex">
       <div class="text">
-        <h3 class="heading"><a href="www.data.gov.au"><span class="icon fa fa-globe"></span> Data.gov.au</a></h3>
+        <h3 class="heading"><a href="https://www.data.gov.au" target="blank"><span class="icon fa fa-globe"></span> Data.gov.au</a></h3>
       </div>
     </div>
     <div class="block-21 mb-4 d-flex">
       <div class="text">
-        <h3 class="heading"><a href="www.environment.gov.au"><span class="icon fa fa-globe"></span> Environment.gov.au</a></h3>
+        <h3 class="heading"><a href="https://www.environment.gov.au" target="blank"><span class="icon fa fa-globe"></span> Environment.gov.au</a></h3>
       </div>
     </div>
     <div class="block-21 mb-4 d-flex">
