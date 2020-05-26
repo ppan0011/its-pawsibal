@@ -74,6 +74,13 @@
 							</div>
 						</div>
 						<div class="col-md-12 services-2 w-100 d-flex">
+							<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-signs"></span></div>
+							<div class="text pl-3">
+								<h4>Are you in the bushfire affected region?</h4>
+								<div style="display: flex;flex-direction: row;"><p class="infireDetails"></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+							</div>
+						</div>
+						<div class="col-md-12 services-2 w-100 d-flex">
 							<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-animals"></span></div>
 							<div class="text pl-3">
 								<h4>Find Nearby Hospitals</h4>
@@ -103,14 +110,6 @@
 						<tbody class="tbody-details">
 							
 						</tbody>
-						<tfoot>
-							<tr>
-								<th>Species Name</th>
-								<th>Category</th>
-								<th>Likelihood of Occurrence</th>
-								<th>Status</th>
-							</tr>
-						</tfoot>
 					</table>
 				</div>
 				</div>

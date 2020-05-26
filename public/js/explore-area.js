@@ -107,7 +107,7 @@ function bushfireDetails(lat,long) {
                 suburb = parsedArray[i].message_key;
                 //console.log("gewt "+suburb);
             };
-            $('.detailsSection').append("<h4>"+parsed_json+"</h4>");
+            $('.infireDetails').text(suburb);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
             alert("Status: " + textStatus); alert("Error: " + errorThrown); 
@@ -219,7 +219,7 @@ function chartDetails(suburb) {
                 rules: [{  
                     condition: {  
                         maxWidth: 300,
-                        maxHeight: 300
+                        maxHeight: 470
                     },  
                     chartOptions: {  
                         legend: {  
