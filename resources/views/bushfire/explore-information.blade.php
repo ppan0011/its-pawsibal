@@ -70,7 +70,7 @@
 							<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-signs"></span></div>
 							<div class="text pl-3">
 								<h4>Distance from Nearest Bushfire:</h4>
-								<div style="display: flex;flex-direction: row;"><p class="distanceDetails"></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="distanceDetailsLink"></p></div>
+								<div style="display: flex;flex-direction: row;"><p class="distanceDetails"></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 							</div>
 						</div>
 						<div class="col-md-12 services-2 w-100 d-flex">
@@ -78,6 +78,13 @@
 							<div class="text pl-3">
 								<h4>Are you in the bushfire affected region?</h4>
 								<div style="display: flex;flex-direction: row;"><p class="infireDetails"></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+							</div>
+						</div>
+						<div class="col-md-12 services-2 w-100 d-flex">
+							<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-signs"></span></div>
+							<div class="text pl-3">
+								<h4>Recommended area to explore</h4>
+								<div style="display: flex;flex-direction: row;"><p class="distanceDetailsLink"></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 							</div>
 						</div>
 						<div class="col-md-12 services-2 w-100 d-flex">
