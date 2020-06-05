@@ -44,7 +44,7 @@
 					</select>
 				</div>
 				<div class="col-md-4 heading-section text-center ftco-animate fadeInUp ftco-animated" >
-					<h2>OR</h2>
+					<h2>THEN</h2>
 				</div>
 				<div class="col-md-4 heading-section text-center ftco-animate fadeInUp ftco-animated" >
 					<h2>Search a suburb</h2>
@@ -97,10 +97,15 @@
 					</button>
 				</div>
 				<div class="modal-body">
+					<div class="imageDetails ml-5" style="width: 18rem;">
+						
+					</div><br>
 					<div style="display: flex;direction: row; justify-content: space-around;"> <p>Common Name:</p><p class="animalCommonName"></p></div>
 					<div style="display: flex;direction: row; justify-content: space-around;"> <p>Scientific Name:</p><p class="animalScientificName"></p></div>
 					<div style="display: flex;direction: row; justify-content: space-around;"> <p>Category:</p><p class="animalCategory"></p></div>
 					<div style="display: flex;direction: row; justify-content: space-around;"> <p>Conservation Status:</p><p class="animalConservationStatus"></p></div>
+
+					<p class="youtubeVid" ></p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
