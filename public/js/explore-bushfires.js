@@ -230,6 +230,7 @@ $( document ).ready(function() {
 	});
 
 	$(document).on("click", '.widthOnHover', function() {
+		
 		$('#exampleModalLabel').text($(this).data('filter'));
 
 		$.ajax({
@@ -240,12 +241,41 @@ $( document ).ready(function() {
 				species: $(this).data('filter')
 			},
 			success:function(response) {
-				$('.animalCommonName').text(response.common_name);
+
+				var animalName = [];
+				
+					$('.animalCommonName').text(response.common_name);
+				$('.imageDetails').html('<img class="card-img-top cardImageDetails" style="max-width:300px;max-height:300px;" src="../images/'+response.common_name+'.jpg" alt="Card image cap">');
 				$('.animalScientificName').text(response.scientific_name);
 				$('.animalCategory').text(response.category);
+				animalName = response.common_name.split(",");
+				console.log(animalName);
+
+				if (animalName.length > 1)
+				{
+					$('.animalCommonName').text(animalName[0]);
+				}
+
 				$('.animalConservationStatus').text(response.conservation_status);
+
+				$.ajax({
+					url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=2&q='+animalName[0]+'+australian+bushfires&type=video&key=AIzaSyA39QY6TegIn1VNBmU36NqDALZa-DPB-OQ',
+					type: 'get',
+					dataType: 'json',
+					success:function(response) {
+						$('.youtubeVid').html("");
+						console.log(response.items);
+						$('.youtubeVid').html("<h4 style=\"text-align:center;\"> Related News:</h4>");
+
+
+						for (var i = 0; i < response.items.length; i++) {
+							$('.youtubeVid').append("<a href=\"http://www.youtube.com/watch/"+response.items[i].id.videoId +"?autoplay=1\" target=\"blank\" style=\"display:flex; justify-content:center;\"><img src="+response.items[i].snippet.thumbnails.high.url+" style=\"width:300px;max-width:300px;margin-bottom:10px;\"></a>");
+						}
+					}
+				});
 			}
 		});
+		
 	});
 
 	$(document).on("change", '.suburbSelect', function(){
